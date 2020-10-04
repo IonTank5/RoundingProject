@@ -10,15 +10,15 @@ int generator::getNumber(int x, int y) {
     int random = rand();
     srand(random*x%time(0));
     if (tempPlace == 2) {
-        return (rand() % 89 + 11);
+        return (rand() % 89999 + 10001);
     }
     else if (tempPlace == 3) {
-        return (rand() % 899 + 101);
+        return (rand() % 89999 + 10001);
     }
     else if (tempPlace == 4) {
-        return (rand() % 8999 + 1001);
+        return (rand() % 89999 + 10001);
     }
-    else if (tempPlace == 4) {
+    else if (tempPlace == 5) {
         return (rand() % 89999 + 10001);
     }
 }
