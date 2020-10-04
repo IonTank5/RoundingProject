@@ -18,4 +18,7 @@ int generator::getNumber(int x, int y) {
     else if (tempPlace == 4) {
         return (rand() % 8999 + 1001);
     }
+    else if (tempPlace == 4) {
+        return (rand() % 89999 + 10001);
+    }
 }

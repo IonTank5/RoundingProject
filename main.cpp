@@ -5,7 +5,7 @@
 using std::string, std::cout, std::endl, std::cin;
 int getPlace(){
     int placeValue;
-    cout<<"What place value would you like to round to?(Default is 1)\n1. All\n2. 10's\n3. 100's\n4. 1000's"<<endl;
+    cout<<"What place value would you like to round to?(Default is 1)\n1. All\n2. 10's\n3. 100's\n4. 1000's\n5.10000's"<<endl;
     cin >> placeValue;
     return placeValue;
 }
@@ -38,6 +38,15 @@ int getRoundedNumber(int start, int place){
             rounded = start-remainder;
         }
     }
+    else if(place == 5){
+        remainder=start%10000;
+        if (remainder>=5000){
+            rounded = start+(10000-remainder);
+        }
+        else if(remainder<5000){
+            rounded = start-remainder;
+        }
+    }
     return rounded;
 }
 bool getAnswer(int answer, int orig, int place){
@@ -47,7 +56,7 @@ bool getAnswer(int answer, int orig, int place){
         print*=10;
         --place;
     }
-    cout << "Round " << orig << " to the nearest " << print << endl;
+    cout << "Round " << orig << " to the nearest " << print << "'s place" << endl;
     cin >> input;
     if(answer==input)
         return true;
@@ -63,7 +72,7 @@ int main() {
         while (tempCounterThatWillBeDeleted < 1000) {
             random = rand();
             srand(time(0));
-            tempPlace = rand() % 3 + 2;
+            tempPlace = rand() % 4 + 2;
             number = gen.getNumber(random, tempPlace);
             rounded = getRoundedNumber(number, tempPlace);
             for (int i = 0; i < 3; ++i) {
